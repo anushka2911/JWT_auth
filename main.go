@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"github.com/anushka2911/jwt/routes"
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	fmt.Println("Hello, World!")
+	router := gin.Default()
+	routes.UserRoutes(router)
 }
