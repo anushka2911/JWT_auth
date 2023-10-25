@@ -7,14 +7,15 @@ import (
 
 var DB *gorm.DB
 
-func Connect() {
+func Connect() error {
 
-	url := "root:root@tcp(localhost:3306)/UserAuthDB?charset=utf8mb4&parseTime=True&loc=Local"
+	url := "root:root@tcp(localhost:3306)/UserAuthDB?charset=utf8&parseTime=True&loc=Local"
 
 	db, err := gorm.Open(mysql.Open(url), &gorm.Config{})
 	if err != nil {
-		panic("Could not connect to the database")
+		return err
 	}
 
 	DB = db
+	return nil
 }
